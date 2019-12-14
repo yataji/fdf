@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 04:25:22 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/11 19:52:34 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/14 03:23:14 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ int		keypress(int key, t_mlx *param)
 		key == 35 ? param->iso = 0 : 0;
 		key == 116 ? param->color += 10 : 0;
 		key == 121 ? param->color -= 10 : 0;
+		key == 8 ? param->color = 0 : 0;
+		key == 15 ? param->movex = 0 : 0;
+		key == 15 ? param->movey = 0 : 0;
 		key == 15 ? param->color = 0 : 0;
+		key == 16 ? param->movey = 0 : 0;
+		key == 7 ? param->movex = 0 : 0;
 		key == 126 ? param->movey -= 10 : 0;
 		key == 125 ? param->movey += 10 : 0;
 		key == 124 ? param->movex += 10 : 0;
@@ -74,29 +79,29 @@ int		calculzoom(t_mlx *mlx)
 
 void	menu(t_mlx fdf)
 {
-	fdf.menu = -1;
-	while (++fdf.menu < 251)
+	while (++fdf.menu < 271)
 	{
-		mlx_pixel_put(fdf.init, fdf.win, fdf.menu, fdf.win_line - 220, 0xFF);
-		mlx_pixel_put(fdf.init, fdf.win, fdf.menu, fdf.win_line - 250, 0xFF);
+		mlx_pixel_put(fdf.init, fdf.win, fdf.menu, fdf.win_line - 270, 0xFF);
+		mlx_pixel_put(fdf.init, fdf.win, fdf.menu, fdf.win_line - 300, 0xFF);
 	}
-	fdf.menu = fdf.win_line - 250;
+	fdf.menu = fdf.win_line - 300;
 	while (++fdf.menu < fdf.win_line)
-		mlx_pixel_put(fdf.init, fdf.win, 250, fdf.menu, 0xFF);
-	mlx_string_put(fdf.init, fdf.win, 100, fdf.win_line - 250, 0x00FF00,
-			"MENU:");
-	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 200,\
+		mlx_pixel_put(fdf.init, fdf.win, 270, fdf.menu, 0xFF);
+	mlx_string_put(fdf.init, fdf.win, 100, fdf.win_line - 300, 0x00FF, "MENU:");
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 250,\
 			0x00FF00, "ISO PROJECTION: I");
-	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 170,\
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 220,\
 			0x00FF00, "PARALLEL PROJECTION: P");
-	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 140,\
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 190,\
 			0x00FF00, "MOVE with ARROWS");
-	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 110,\
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 160,\
 			0x00FF00, "ZOOM : + / -");
-	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 80,\
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 130,\
 			0x00FF00, "ALTITUDE H / L");
-	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 50,\
-			0x00FF00, "COLORS: PAGEUP PAGEDOWN");
-	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 30,\
-			0x00FF00, "              R");
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 100,\
+			0x00FF00, "COLORS: PAGEUP PAGEDOWN C");
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 70,\
+			0x00FF00, "RESET X && Y: X Y");
+	mlx_string_put(fdf.init, fdf.win, 20, fdf.win_line - 40,\
+			0x00FF00, "RESET ALL: R");
 }

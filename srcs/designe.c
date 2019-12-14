@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:24:01 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/11 19:52:39 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/14 03:04:35 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int			indexpoint(t_mlx mlx)
 	t_point		end;
 
 	isoc = mlx.iso ? 0 : 1;
+	mlx.menu = -1;
 	mlx.x0 = ((mlx.win_cln - isoc * mlx.mcln * mlx.zoom) / 2) + mlx.movex;
 	mlx.y0 = ((mlx.win_line - mlx.mln * mlx.zoom) / 2) + mlx.movey;
 	map = mlx.dn;
@@ -102,15 +103,13 @@ void		designe(t_mlx *mlx)
 	mlx->movey = 0;
 	mlx->movex = 0;
 	mlx->color = 0;
-	mlx->h = 2;
+	mlx->h = 1;
 	mlx->iso = 0;
 	mlx->zoom = calculzoom(mlx);
 	mlx->win_cln = MINCLN > mlx->mcln * 3 / 2 * mlx->zoom ? MINCLN : mlx->mcln\
 					* 3 / 2 * mlx->zoom;
 	mlx->win_line = MINLN > mlx->mln * 3 / 2 * mlx->zoom ? MINLN : mlx->mln\
 					* 3 / 2 * mlx->zoom;
-//	mlx->x0 = (mlx->win_cln - mlx->mcln * mlx->zoom) / 2;
-//	mlx->y0 = (mlx->win_line - mlx->mln * mlx->zoom) / 2;
 	mlx->init = mlx_init();
 	mlx->win = mlx_new_window(mlx->init, mlx->win_cln, mlx->win_line, mlx->av);
 	indexpoint(*mlx);
