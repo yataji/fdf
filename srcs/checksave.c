@@ -54,7 +54,7 @@ t_tabcord		*save(char **str, int line, int dm, int *cln)
 
 	i = -1;
 	if (!(new = (t_tabcord *)ft_memalloc(sizeof(t_tabcord))) ||\
-			!(new->save = (t_cord *)ft_memalloc(sizeof(t_tabcord) * dm)))
+			!(new->save = (t_cord *)ft_memalloc(sizeof(t_cord) * dm)))
 		return (NULL);
 	while (str && str[++i] && i < dm)
 	{
