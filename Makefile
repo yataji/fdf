@@ -14,13 +14,13 @@ NAME=fdf
 SRCS= srcs/checksave.c srcs/fonction_utils.c srcs/designe.c srcs/main.c
 OBJ= srcs/checksave.o srcs/fonction_utils.o srcs/designe.o srcs/main.o
 FLG= -Wall -Wextra -Werror
-INC= includes/
 all: $(NAME) $(OBJ)
 
-$(NAME): $(OBJ) $(INC)
-	@make -C libft
+$(NAME): $(OBJ)
+	@make -s -C libft
 	@gcc $(FLG) libft/libft.a $(SRCS) -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-
+%.o : %.c
+	@gcc -c -o $@ $<
 clean:
 	@make -C libft/ clean
 	@rm -f $(OBJ)
