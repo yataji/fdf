@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 22:31:57 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/14 03:04:39 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/23 04:05:37 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,13 @@ void	errormain(int fd, char *av)
 	if (fd == -1)
 	{
 		ft_putstr("No file ");
-		ft_putstr(av);
-		ft_putchar('\n');
-		return ;
+		ft_putendl(av);
 	}
 }
 
 int		main(int ac, char **av)
 {
 	int			fd;
-	int			dm;
 	t_mlx		mlx;
 
 	if (ac == 2)
@@ -50,7 +47,7 @@ int		main(int ac, char **av)
 			errormain(fd, av[1]);
 			return (0);
 		}
-		if ((dm = check(fd, &mlx) == -1))
+		if (check(fd, &mlx) == -1)
 			return (clear_list(&mlx.dn));
 	}
 	else

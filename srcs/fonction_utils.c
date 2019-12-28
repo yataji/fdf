@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   fonction_utils.c                                   :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 04:25:22 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/14 03:23:14 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/23 04:11:23 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		keypress(int key, t_mlx *param)
 		key == 116 ? param->color += 10 : 0;
 		key == 121 ? param->color -= 10 : 0;
 		key == 8 ? param->color = 0 : 0;
+		key == 15 ? param->h = 1 : 0;
 		key == 15 ? param->movex = 0 : 0;
 		key == 15 ? param->movey = 0 : 0;
 		key == 15 ? param->color = 0 : 0;
@@ -71,8 +72,8 @@ int		calculzoom(t_mlx *mlx)
 	int		zoom;
 
 	zoom = 40;
-	while ((MAXCLN < mlx->mcln * 3 / 2 * zoom ||\
-				MAXLN < mlx->mln * 3 / 2 * zoom) && zoom > 1)
+	while ((mlx->mcln * 3 / 2 * zoom > MAXCLN ||\
+				mlx->mln * 3 / 2 * zoom > MAXLN) && zoom > 1)
 		zoom--;
 	return (zoom);
 }

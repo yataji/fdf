@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 02:23:39 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/14 03:04:36 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/23 04:05:34 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ t_tabcord		*save(char **str, int line, int dm, int *cln)
 		new->save[i].height = ft_atoi(str[i]);
 		color = ft_strchr(str[i], ',');
 		c = color ? ft_atoi_base(color + 3, "0123456789ABCDEF") : 0;
-		z = (new->save[i].height ? new->save[i].height : 1);
-		z = 0xFFFFFF < abs(z) || z == 1 ? z / 2 + 1 : abs(z) * 20;
+		z = new->save[i].height ? new->save[i].height : 1;
+		z = abs(z) > 0xFFFFFF || z == 1 ? z / 2 + 1 : abs(z) * 20;
 		new->save[i].clr = c ? c : 0xFFFFFF / abs(z);
 	}
 	*cln = i;

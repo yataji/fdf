@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:24:01 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/14 03:04:35 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/27 07:30:29 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ void		designe(t_mlx *mlx)
 	mlx->h = 1;
 	mlx->iso = 0;
 	mlx->zoom = calculzoom(mlx);
-	mlx->win_cln = MINCLN > mlx->mcln * 3 / 2 * mlx->zoom ? MINCLN : mlx->mcln\
+	mlx->win_cln = mlx->mcln * 3 / 2 * mlx->zoom < MINCLN ? MINCLN : mlx->mcln\
 					* 3 / 2 * mlx->zoom;
-	mlx->win_line = MINLN > mlx->mln * 3 / 2 * mlx->zoom ? MINLN : mlx->mln\
+	mlx->win_line = mlx->mln * 3 / 2 * mlx->zoom < MINLN ? MINLN : mlx->mln\
 					* 3 / 2 * mlx->zoom;
 	mlx->init = mlx_init();
 	mlx->win = mlx_new_window(mlx->init, mlx->win_cln, mlx->win_line, mlx->av);
