@@ -1,4 +1,4 @@
-
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   fonction_utils.c                                   :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 04:25:22 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/23 04:11:23 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/29 12:39:15 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,28 @@ void	clear_tab(char **str)
 
 int		keypress(int key, t_mlx *param)
 {
-	if (param)
-	{
-		key == 53 ? exit(0) : 0;
-		key == 69 ? param->zoom++ : 0;
-		key == 78 && param->zoom > 1 ? param->zoom-- : 0;
-		key == 4 ? param->h++ : 0;
-		key == 37 ? param->h-- : 0;
-		key == 34 ? param->iso = 1 : 0;
-		key == 35 ? param->iso = 0 : 0;
-		key == 116 ? param->color += 10 : 0;
-		key == 121 ? param->color -= 10 : 0;
-		key == 8 ? param->color = 0 : 0;
-		key == 15 ? param->h = 1 : 0;
-		key == 15 ? param->movex = 0 : 0;
-		key == 15 ? param->movey = 0 : 0;
-		key == 15 ? param->color = 0 : 0;
-		key == 16 ? param->movey = 0 : 0;
-		key == 7 ? param->movex = 0 : 0;
-		key == 126 ? param->movey -= 10 : 0;
-		key == 125 ? param->movey += 10 : 0;
-		key == 124 ? param->movex += 10 : 0;
-		key == 123 ? param->movex -= 10 : 0;
-		mlx_clear_window(param->init, param->win);
-		indexpoint(*param);
-	}
+	key == 53 ? ft_exit(param) : 0;
+	key == 69 ? param->zoom++ : 0;
+	key == 78 && param->zoom > 1 ? param->zoom-- : 0;
+	key == 4 ? param->h++ : 0;
+	key == 37 ? param->h-- : 0;
+	key == 34 ? param->iso = 1 : 0;
+	key == 35 ? param->iso = 0 : 0;
+	key == 116 ? param->color += 10 : 0;
+	key == 121 ? param->color -= 10 : 0;
+	key == 8 ? param->color = 0 : 0;
+	key == 15 ? param->h = 1 : 0;
+	key == 15 ? param->movex = 0 : 0;
+	key == 15 ? param->movey = 0 : 0;
+	key == 15 ? param->color = 0 : 0;
+	key == 16 ? param->movey = 0 : 0;
+	key == 7 ? param->movex = 0 : 0;
+	key == 126 ? param->movey -= 10 : 0;
+	key == 125 ? param->movey += 10 : 0;
+	key == 124 ? param->movex += 10 : 0;
+	key == 123 ? param->movex -= 10 : 0;
+	mlx_clear_window(param->init, param->win);
+	indexpoint(*param);
 	return (1);
 }
 

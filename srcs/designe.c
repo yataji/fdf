@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 19:24:01 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/27 07:30:29 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/29 12:05:34 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void		pixel(t_mlx mlx, t_point start, t_point end)
 	mlx.math.dp = 2 * mlx.math.dx + 2 * mlx.math.dy;
 	while (start.x != end.x || start.y != end.y)
 	{
-		mlx_pixel_put(mlx.init, mlx.win, mlx.x0 +\
-				start.x, mlx.y0 + start.y, start.c < end.c ? start.c : end.c);
+		mlx_pixel_put(mlx.init, mlx.win, start.x + mlx.x0, start.y + mlx.y0,\
+				start.c < end.c ? start.c : end.c);
 		if (mlx.math.dp >= mlx.math.dy && start.x != end.x)
 		{
 			mlx.math.dp += mlx.math.dy;

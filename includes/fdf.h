@@ -6,7 +6,7 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 22:26:08 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/27 07:48:29 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/29 12:33:24 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ typedef struct			s_mlx
 
 void					errormain(int fd, char *av);
 int						check(int fd, t_mlx *mlx);
+void					ft_exit(t_mlx *mlx);
 int						err(char ***str, char **ln);
 int						checklnmx(char **str);
 int						strlen2dm(char **str);
 t_tabcord				*save(char **str, int line, int dm, int *cln);
-
 void					designe(t_mlx *mlx);
 int						calculzoom(t_mlx *mlx);
 int						indexpoint(t_mlx mlx);
@@ -93,7 +93,6 @@ void					nextindex(t_point *start, t_point *end, t_mlx *mlx,
 		t_tabcord **map);
 void					pixel(t_mlx mlx, t_point start, t_point end);
 void					iso(int *x, int *y, int z);
-
 void					menu(t_mlx mlx);
 int						keypress(int key, t_mlx *param);
 void					clear_tab(char **str);

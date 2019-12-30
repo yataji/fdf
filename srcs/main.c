@@ -6,11 +6,19 @@
 /*   By: yataji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 22:31:57 by yataji            #+#    #+#             */
-/*   Updated: 2019/12/23 04:05:37 by yataji           ###   ########.fr       */
+/*   Updated: 2019/12/29 12:39:17 by yataji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	ft_exit(t_mlx *mlx)
+{
+	mlx_clear_window(mlx->init, mlx->win);
+	mlx_destroy_window(mlx->init, mlx->win);
+	clear_list(&mlx->dn);
+	exit(0);
+}
 
 int		err(char ***str, char **ln)
 {
